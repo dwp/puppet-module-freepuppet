@@ -4,5 +4,7 @@
   "author": "jonty.bale@dwp.gsi.gov.uk",
   "license": "MIT",
   "summary": "A module which provides a basic bootstrap, scripts and cron job for running puppet without a master.",
-  "source": "https://gitlab.itsshared.net/Innovation/puppet-module-freepuppet.git"
+  "source": "https://gitlab.itsshared.net/Innovation/puppet-module-freepuppet.git",
+  "tags": [ ],
+  "dependencies": [ ]
 }
