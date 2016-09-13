@@ -33,7 +33,7 @@ echo $$ > ${LOCKFILE}
 
 echo "Creating lockfile and running puppet apply."
 echo "/usr/bin/puppet apply --certname $NODE_NAME --modulepath /etc/puppet/modules --logdest syslog /etc/puppet/manifests/${MANIFEST_NAME}.pp"
-/usr/bin/puppet apply --certname $NODE_NAME --modulepath /etc/puppet/modules --logdest syslog /etc/puppet/manifests/${MANIFEST_NAME}.pp
+/usr/bin/puppet apply --certname $NODE_NAME --modulepath /etc/puppet/modules /etc/puppet/manifests/${MANIFEST_NAME}.pp
 
 
 echo "Cleaning up lockfile."
