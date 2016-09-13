@@ -15,9 +15,9 @@ fi
 # Pull in our enviromental settings.
 echo "=================================================="
 MANIFEST_NAME=$(<$MANIFEST_NAME_FILE)
-echo "Reading manifest name as: ${MANIFEST_NAME}"
+echo "Reading manifest name - ${MANIFEST_NAME}"
 NODE_NAME=$(<$NODE_NAME_FILE)
-echo "Reading node name as: ${NODE_NAME}"
+echo "Reading node name - ${NODE_NAME}"
 echo "=================================================="
 
 # lockfile mechanic
@@ -34,7 +34,6 @@ echo $$ > ${LOCKFILE}
 echo "Creating lockfile and running puppet apply."
 echo "/usr/bin/puppet apply --certname $NODE_NAME --modulepath /etc/puppet/modules --logdest syslog /etc/puppet/manifests/${MANIFEST_NAME}.pp"
 /usr/bin/puppet apply --certname $NODE_NAME --modulepath /etc/puppet/modules /etc/puppet/manifests/${MANIFEST_NAME}.pp
-
 
 echo "Cleaning up lockfile."
 rm -f ${LOCKFILE}
