@@ -14,10 +14,24 @@ fi
 
 # Pull in our enviromental settings.
 echo "=================================================="
+
+
+# manifest file
+if [ ! -f $MANIFEST_NAME_FILE ]; then
+    echo "Unable to locate manifest name file ${MANIFEST_NAME_FILE}."
+    exit
+fi
 MANIFEST_NAME=$(<$MANIFEST_NAME_FILE)
 echo "Reading manifest name - ${MANIFEST_NAME}"
+
+# node file
+if [ ! -f $NODE_NAME_FILE ]; then
+    echo "Unable to locate node name file $NODE_NAME_FILE."
+    exit
+fi
 NODE_NAME=$(<$NODE_NAME_FILE)
 echo "Reading node name - ${NODE_NAME}"
+
 echo "=================================================="
 
 # lockfile mechanic
