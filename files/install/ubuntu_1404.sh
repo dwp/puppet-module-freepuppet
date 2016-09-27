@@ -5,7 +5,9 @@ MANIFEST_NAME_FILE=/etc/puppet/manifest
 NODE_NAME_FILE=/etc/puppet/certname
 
 # setup required modules
-apt-get install puppet-common git rubygems-integration
+apt-get update
+apt-get upgrade -y
+apt-get install puppet-common git rubygems-integration -y
 
 # install librarian pupet
 gem install librarian-puppet

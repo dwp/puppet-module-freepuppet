@@ -15,7 +15,6 @@ fi
 # Pull in our enviromental settings.
 echo "=================================================="
 
-
 # manifest file
 if [ ! -f $MANIFEST_NAME_FILE ]; then
     echo "Unable to locate manifest name file ${MANIFEST_NAME_FILE}."

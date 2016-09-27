@@ -14,6 +14,14 @@ class freepuppet
     cron { 'freepuppet-run':
         ensure  => present,
         command => '/usr/local/bin/freepuppet-run',
-        minute  => '*/15'
+        minute  => '*/15',
+        require => File["/usr/local/bin/freepuppet-run"]
     }
+    
+    # install call to run freepuppet on startup.
+    file { '/etc/init/freepuppet.conf':
+        ensure  => present,
+        source  => 'puppet:///modules/freepuppet/upstart.conf',
+        require => File["/usr/local/bin/freepuppet-run"]
+    }   
 }
