@@ -2,8 +2,16 @@
 # this code will wrap the run script and provide a process to update the puppet repository from
 # a central location once the code is on github.
 
-# update our puppet repository
-git -C /etc/puppet git pull
+# move to puppet repo
+echo "Starting to update /etc/puppet"
+cd /etc/puppet
 
-# run freepuppet
-/usr/local/bin/freepuppet-run
+# update our puppet repository
+git pull
+
+# ensure the dependencies are installed
+echo "Running librarian-puppet to enusre all puppet modules are installed correctly."
+librarian-puppet install --verbose
+
+# and perform our puppet run
+freepuppet-run
