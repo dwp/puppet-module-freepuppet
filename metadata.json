@@ -1,6 +1,6 @@
 {
   "name": "dwpinnovation-freepuppet",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "jonty.bale@dwp.gsi.gov.uk",
   "license": "MIT",
   "summary": "A module which provides a basic bootstrap, scripts and cron job for running puppet without a master.",

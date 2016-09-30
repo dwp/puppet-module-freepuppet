@@ -9,13 +9,27 @@ class freepuppet
         ensure => present,
         source => 'puppet:///modules/freepuppet/cron/run.sh'
     }
+    # ensure the update script is in place
+    file { '/usr/local/bin/freepuppet-update':
+        ensure  => present,
+        source  => 'puppet:///modules/freepuppet/cron/update.sh',
+        require => File['/usr/local/bin/freepuppet-run']
+    }
 
     # ensure we have a cron in place which runs every 15min
     cron { 'freepuppet-run':
-        ensure  => present,
+        ensure  => absent,
         command => '/usr/local/bin/freepuppet-run',
         minute  => '*/15',
         require => File["/usr/local/bin/freepuppet-run"]
+    }
+
+    # ensure we have a cron in place which runs every 15min
+    cron { 'freepuppet-update':
+        ensure  => present,
+        command => '/usr/local/bin/freepuppet-update',
+        minute  => '*/15',
+        require => File["/usr/local/bin/freepuppet-update"]
     }
     
     # install call to run freepuppet on startup.
