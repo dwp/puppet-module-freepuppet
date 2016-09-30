@@ -4,6 +4,16 @@
 #
 class freepuppet
 {
+    # ensure librarian-puppet is installed
+    package { 'rubygems-integration':
+        ensure => present
+    }
+    package { 'librarian-puppet':
+        ensure   => present,
+        provider => gem,
+        require  => Package['rubygems-integration']
+    }
+    
     # ensure the run script is in place
     file { '/usr/local/bin/freepuppet-run':
         ensure => present,
